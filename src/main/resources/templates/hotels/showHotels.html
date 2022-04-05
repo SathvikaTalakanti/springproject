@@ -17,7 +17,7 @@
     <hr>
     <a th:href="@{/hotels/showFormForAdd}" class="btn btn-primary btn-sm mb-3">Add Hotel </a>
     <hr>
-    <table>
+    <table class="table table-bordered table-striped" >
         <thead class="thead-dark">
         <th>Hotel Name</th>
         <th>Hotel Address</th>
@@ -25,7 +25,7 @@
         <th style="text-align:center">View Details</th>
         <th style="text-align:center">Action</th>
         </thead>
-        <tbody style="background-color:pink">
+        <tbody>
         <tr th:each="theHotel: ${hotels}">
             <td th:text="${theHotel.hotelName}"/>
             <td th:text="${theHotel.hotelAddress}"/>

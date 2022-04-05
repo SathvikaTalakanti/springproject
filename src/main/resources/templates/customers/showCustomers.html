@@ -18,14 +18,14 @@
     <a th:href="@{/customers/showFormForAdd/{Id}(Id=${hotelId})}" class="btn btn-primary btn-sm mb-3"> Add Customer </a>
     <hr>
 
-    <table>
+    <table class="table table-bordered table-striped" >
         <thead class="thead-dark">
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
         <th style="text-align:center">Action</th>
         </thead>
-        <tbody style="background-color: pink">
+        <tbody>
         <tr th:each="theCustomer : ${hotelCustomers}">
             <td th:text="${theCustomer.firstName}"/>
             <td th:text="${theCustomer.lastName}"/>
