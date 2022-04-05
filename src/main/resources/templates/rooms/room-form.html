@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Add Room</title>
+</head>
+<body>
+<div class="container">
+    <hr>
+    <h3>Add Room</h3>
+    <hr>
+    <form action="#" th:action="@{/rooms/save/{Id}(Id=${hotelId})}"  th:object="${room}" method="POST">
+
+        <input type="hidden" th:field="*{roomId}"/>
+        <div>
+            <input type="text" th:field="*{roomNo}" id="roomNo" class="form-control mb-4 col-4" style="display:inline" placeholder="Room No"/><br>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('roomNo')}" th:errors="*{roomNo}"></div>
+        </div>
+        <div>
+            <input type="text" th:field="*{floorNo}" id="floorNo" class="form-control mb-4 col-4" style="display:inline"  placeholder="Floor No"/><br>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('floorNo')}" th:errors="*{floorNo}"></div>
+        </div>
+
+
+        <button type="submit" class="btn btn-info col-2">Save Room</button>
+    </form>
+    <hr>
+    <a th:href="@{/rooms/findRooms(hotelId=${hotelId})}" class="btn btn-danger btn-sm">Go Back to Rooms</a>
+</div>
+</body>
+</html>

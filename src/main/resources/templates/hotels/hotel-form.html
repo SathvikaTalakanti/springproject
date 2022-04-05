@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Add Hotel</title>
+</head>
+<body>
+<div class="container">
+    <hr>
+    <h3>Add Hotel</h3>
+    <hr>
+    <form action="#" th:action="@{/hotels/save}" th:object="${hotel}" method="POST">
+
+        <!--This field is very important for updating in tables-->
+        <input type="hidden" th:field="*{hotelId}"/>
+        <div>
+            <input type="text" th:field="*{hotelName}" id="hotelName" class="form-control mb-4 col-4"  placeholder="Hotel Name"/>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('hotelName')}" th:errors="*{hotelName}"></div>
+
+        </div>
+        <div>
+            <input type="text" th:field="*{hotelAddress}" id="hotelAddress" class="form-control mb-4 col-4" placeholder="Hotel Address"/>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('hotelAddress')}" th:errors="*{hotelAddress}"></div>
+
+        </div>
+        <div>
+            <input type="text" th:field="*{hotelRating}" id="hotelRating" class="form-control mb-4 col-4" placeholder="Hotel Rating"/>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('hotelRating')}" th:errors="*{hotelRating}"></div>
+
+        </div>
+        <button type="submit" class="btn btn-info col-2">Save Hotel</button>
+
+    </form>
+
+    <hr>
+    <a th:href="@{/hotels/showAll}" class="btn btn-danger btn-sm">Back to Hotels</a>
+
+</div>
+</body>
+</html>
